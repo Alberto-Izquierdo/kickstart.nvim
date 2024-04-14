@@ -257,6 +257,17 @@ require('lazy').setup({
       },
     },
   },
+  {
+    "nvim-tree/nvim-tree.lua",
+    version = "*",
+    lazy = false,
+    dependencies = {
+      "nvim-tree/nvim-web-devicons",
+    },
+    config = function()
+      require("nvim-tree").setup {}
+    end,
+  },
 
   -- NOTE: Plugins can also be configured to run Lua code when they are loaded.
   --
@@ -399,6 +410,11 @@ require('lazy').setup({
       vim.keymap.set('n', '<leader>sn', function()
         builtin.find_files { cwd = vim.fn.stdpath 'config' }
       end, { desc = '[S]earch [N]eovim files' })
+
+      -- Shortcut for searching in my notes
+      vim.keymap.set('n', '<leader>so', function()
+        builtin.find_files { cwd = vim.fn.expand '$NOTES_PATH' }
+      end, { desc = '[S]earch n[o]tes files' })
     end,
   },
 
