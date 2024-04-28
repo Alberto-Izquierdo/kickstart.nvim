@@ -264,6 +264,9 @@ require('lazy').setup({
     },
     config = function()
       require('nvim-tree').setup {}
+
+      vim.keymap.set('n', '<leader>tt', ':NvimTreeToggle<Enter>', { desc = '[t] Toggle the NvimTree' })
+      vim.keymap.set('n', '<leader>tf', ':NvimTreeFindFile<Enter>', { desc = '[f] Find the current file in NvimTree' })
     end,
   },
 
@@ -295,6 +298,7 @@ require('lazy').setup({
         ['<leader>r'] = { name = '[R]ename', _ = 'which_key_ignore' },
         ['<leader>s'] = { name = '[S]earch', _ = 'which_key_ignore' },
         ['<leader>w'] = { name = '[W]orkspace', _ = 'which_key_ignore' },
+        ['<leader>t'] = { name = '[T]ree', _ = 'which_key_ignore' },
       }
     end,
   },
